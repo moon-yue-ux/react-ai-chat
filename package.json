@@ -45,6 +45,5 @@
   },
   "devDependencies": {
     "gh-pages": "^4.0.0"
-  },
-  "homepage": "https://moon-yue-ux.github.io/react-ai-chat"
+  }
 }

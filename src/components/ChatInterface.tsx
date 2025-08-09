@@ -103,15 +103,15 @@ const ChatInterface: React.FC = () => {
   }, [inputValue]);
 
   return (
-    <div className=\"chat-container\">
+    <div className="chat-container">
       {/* Header */}
-      <div className=\"chat-header\">
-        <div className=\"header-content\">
-          <div className=\"header-icon\">
-            <Sparkles className=\"sparkle-icon\" />
-            <Bot className=\"bot-icon\" />
+      <div className="chat-header">
+        <div className="header-content">
+          <div className="header-icon">
+            <Sparkles className="sparkle-icon" />
+            <Bot className="bot-icon" />
           </div>
-          <div className=\"header-text\">
+          <div className="header-text">
             <h1>AI 聊天助手</h1>
             <p>智能对话，随时为您服务</p>
           </div>
@@ -119,23 +119,23 @@ const ChatInterface: React.FC = () => {
       </div>
 
       {/* Messages */}
-      <div className=\"messages-container\">
-        <div className=\"messages-wrapper\">
+      <div className="messages-container">
+        <div className="messages-wrapper">
           {messages.map((message) => (
             <div
               key={message.id}
               className={`message ${message.isUser ? 'user' : 'ai'}`}
             >
-              <div className=\"message-avatar\">
+              <div className="message-avatar">
                 {message.isUser ? (
-                  <User className=\"avatar-icon\" />
+                  <User className="avatar-icon" />
                 ) : (
-                  <Bot className=\"avatar-icon\" />
+                  <Bot className="avatar-icon" />
                 )}
               </div>
-              <div className=\"message-content\">
-                <div className=\"message-text\">{message.text}</div>
-                <div className=\"message-time\">
+              <div className="message-content">
+                <div className="message-text">{message.text}</div>
+                <div className="message-time">
                   {message.timestamp.toLocaleTimeString('zh-CN', {
                     hour: '2-digit',
                     minute: '2-digit',
@@ -146,12 +146,12 @@ const ChatInterface: React.FC = () => {
           ))}
           
           {isTyping && (
-            <div className=\"message ai\">
-              <div className=\"message-avatar\">
-                <Bot className=\"avatar-icon\" />
+            <div className="message ai">
+              <div className="message-avatar">
+                <Bot className="avatar-icon" />
               </div>
-              <div className=\"message-content\">
-                <div className=\"typing-indicator\">
+              <div className="message-content">
+                <div className="typing-indicator">
                   <span></span>
                   <span></span>
                   <span></span>
@@ -165,29 +165,29 @@ const ChatInterface: React.FC = () => {
       </div>
 
       {/* Input */}
-      <div className=\"input-container\">
-        <div className=\"input-wrapper\">
-          <div className=\"input-field\">
+      <div className="input-container">
+        <div className="input-wrapper">
+          <div className="input-field">
             <textarea
               ref={textareaRef}
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={handleKeyPress}
-              placeholder=\"输入你的消息...\"
-              className=\"message-input\"
+              placeholder="输入你的消息..."
+              className="message-input"
               disabled={isTyping}
               rows={1}
             />
             <button
               onClick={handleSendMessage}
               disabled={inputValue.trim() === '' || isTyping}
-              className=\"send-button\"
+              className="send-button"
             >
-              <Send className=\"send-icon\" />
+              <Send className="send-icon" />
             </button>
           </div>
-          <div className=\"input-footer\">
-            <MessageSquare className=\"footer-icon\" />
+          <div className="input-footer">
+            <MessageSquare className="footer-icon" />
             <span>按 Enter 发送消息，Shift + Enter 换行</span>
           </div>
         </div>

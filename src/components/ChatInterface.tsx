@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User, MessageSquare, Sparkles } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
 import './ChatInterface.css';
 
 interface Message {
@@ -192,7 +193,13 @@ const ChatInterface: React.FC = () => {
                 )}
               </div>
               <div className="message-content">
-                <div className="message-text">{message.text}</div>
+                <div className="message-text">
+                  {message.isUser ? (
+                    message.text
+                  ) : (
+                    <ReactMarkdown>{message.text}</ReactMarkdown>
+                  )}
+                </div>
                 <div className="message-time">
                   {message.timestamp.toLocaleTimeString('zh-CN', {
                     hour: '2-digit',

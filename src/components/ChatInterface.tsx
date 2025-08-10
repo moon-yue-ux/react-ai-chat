@@ -51,31 +51,7 @@ const ChatInterface: React.FC = () => {
     scrollToBottom();
   }, [messages]);
 
-  // const simulateAIResponse = (userMessage: string): string => {
-  //   const responses = [
-  //     '这是一个很有趣的问题！让我来为你详细解答...',
-  //     '根据我的理解，这个问题可以从以下几个角度来分析：',
-  //     '你提出了一个很好的观点。我认为...',
-  //     '这确实需要仔细考虑。基于目前的信息...',
-  //     '让我为你提供一些相关的建议和信息...',
-  //     '这是一个常见的问题，我来帮你解决它。',
-  //   ];
-    
-  //   if (userMessage.includes('你好') || userMessage.includes('hi') || userMessage.includes('hello')) {
-  //     return '你好！很高兴见到你！有什么我可以帮助你的吗？';
-  //   }
-    
-  //   if (userMessage.includes('谢谢') || userMessage.includes('thanks')) {
-  //     return '不客气！我很乐意帮助你。还有其他问题吗？';
-  //   }
-    
-  //   if (userMessage.includes('再见') || userMessage.includes('bye')) {
-  //     return '再见！祝你有美好的一天！如果还有问题，随时可以来找我。';
-  //   }
-    
-  //   return responses[Math.floor(Math.random() * responses.length)] + 
-  //          ' 这只是一个模拟回复，实际的AI会根据具体问题提供更准确的答案。';
-  // };
+
 
   const handleSendMessage = async () => {
     if (inputValue.trim() === '') return;
@@ -105,7 +81,6 @@ const ChatInterface: React.FC = () => {
         }),
       });
       const result: AIResponse = await response.json();
-      console.log(result, 'result=======')
       if (result.errors) {
         throw new Error(result.errors[0].message);
       }
@@ -130,17 +105,7 @@ const ChatInterface: React.FC = () => {
     } finally {
       setIsTyping(false);
     }
-    // 模拟AI响应延迟
-    // setTimeout(() => {
-    //   const aiResponse: Message = {
-    //     id: (Date.now() + 1).toString(),
-    //     text: simulateAIResponse(inputValue),
-    //     isUser: false,
-    //     timestamp: new Date(),
-    //   };
-    //   setMessages(prev => [...prev, aiResponse]);
-    //   setIsTyping(false);
-    // }, 1000 + Math.random() * 2000); // 1-3秒的随机延迟
+    
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {

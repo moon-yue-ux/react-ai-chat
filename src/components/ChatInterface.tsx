@@ -104,6 +104,7 @@ const ChatInterface: React.FC = () => {
         }),
       });
       const result: AIResponse = await response.json();
+      console.log(result, 'result=======')
       if (result.errors) {
         throw new Error(result.errors[0].message);
       }
@@ -116,6 +117,7 @@ const ChatInterface: React.FC = () => {
 
       setMessages(prev => [...prev, aiResponse]);
     }  catch (error) {
+      console.log(error, 'error=====')
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         text: '抱歉，发生了错误。请稍后重试。',

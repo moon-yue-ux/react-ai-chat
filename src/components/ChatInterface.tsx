@@ -3,6 +3,7 @@ import { Send, Bot, User, MessageSquare, Sparkles } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import './ChatInterface.css';
 
+// 消息类型定义
 interface Message {
   id: string;
   text: string;
@@ -93,7 +94,6 @@ const ChatInterface: React.FC = () => {
 
       setMessages(prev => [...prev, aiResponse]);
     }  catch (error) {
-      console.log(error, 'error=====')
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         text: '抱歉，发生了错误。请稍后重试。',
@@ -137,7 +137,7 @@ const ChatInterface: React.FC = () => {
           </div>
           <div className="header-text">
             <h1>AI 聊天助手</h1>
-            <p>智能对话，随时为您服务</p>
+            <p>react+ts+openAi</p>
           </div>
         </div>
       </div>

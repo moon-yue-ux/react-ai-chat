@@ -31,7 +31,7 @@ function App() {
           className="english-button"
           onClick={() => setIsDialogOpen(true)}
         >
-          每日口语英语
+          每日口语英语(agent)
         </button>
       </div>
       <ChatInterface />
